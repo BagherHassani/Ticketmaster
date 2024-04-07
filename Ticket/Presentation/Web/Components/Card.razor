@@ -1,0 +1,25 @@
+﻿
+
+<MudCard>
+    <MudCardMedia Image="@Photo" Height="200" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">@Singer</MudText>
+        <MudText Typo="Typo.body2">@Description</MudText>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary">Send</MudButton>
+    </MudCardActions>
+</MudCard>
+
+
+
+@code {
+    [Parameter]
+    public string Photo { get; set; }
+
+    [Parameter]
+    public string Singer { get; set; }
+
+    [Parameter]
+    public string Description { get; set; }
+}
