@@ -1,0 +1,23 @@
+﻿@* @page "/user/{Id:int}" *@
+@attribute [Authorize]
+@inject HttpClient Http
+@page "/x"
+@page "/y"
+
+
+
+
+Xxxxxxxxxxxxxxxxxxxxxxxx
+
+@Id
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    public void Print()
+    {
+        // Http.PostAsJsonAsync<T>("");
+    }
+}

@@ -1,0 +1,25 @@
+﻿
+
+
+<div>
+    <h1>@Id</h1>
+    <p>@Name</p>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public EventCallback<decimal> Price { get; set; }
+
+    protected override async void OnInitialized()
+    {
+        await Price.InvokeAsync(500);
+    }
+}
