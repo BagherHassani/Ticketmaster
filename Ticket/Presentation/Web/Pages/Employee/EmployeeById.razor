@@ -1,0 +1,28 @@
+﻿@page "/employee/{Id:int}"
+
+
+
+@if (employee is null)
+{
+    <p>Loading ...</p>
+}
+else
+{
+    <h1>@employee.EmployeeName</h1>
+    <h5>@employee.Id</h5>
+}
+
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Employee employee;
+
+    protected override async Task OnInitializedAsync()
+    {
+        employee = (await Http
+            .GetFromJsonAsync<SingleData>($"https://dummy.restapiexample.com/api/v1/employee/{Id}")).Employee;
+    }
+}

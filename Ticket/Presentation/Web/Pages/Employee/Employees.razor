@@ -1,0 +1,29 @@
+﻿@page "/employees"
+
+
+
+@if (employees is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    @foreach (var employee in employees)
+    {
+        <p>@employee.Id</p>
+        <p>@employee.EmployeeName</p>
+        <a href="employee/@employee.Id">Detail</a>
+    }
+}
+
+
+
+@code {
+    private IEnumerable<Employee> employees;
+
+    protected override async Task OnInitializedAsync()
+    {
+        employees = (await Http
+            .GetFromJsonAsync<Data>("https://dummy.restapiexample.com/api/v1/employees")).Employees;
+    }
+}
